@@ -19,7 +19,7 @@ function employeeInput(event) {
         annualSalary: $('#in-annualSalary').val()
     }
     addEmployee(employeeSalary.fName, employeeSalary.lName, employeeSalary.id, employeeSalary.title, employeeSalary.annualSalary);
-    calculateMonthlySalary(employeeArray);
+    calculateMonthlySalary();
     emptyInputs();
 }
 
@@ -33,9 +33,8 @@ function addEmployee(fNameInput, lNameInput, idInput, titleInput, annualSalaryin
     }
     employeeArray.push(employeeObject);
     console.log('Employee Object:', employeeObject);
-    $('#tableBody').append(`<tr><th>${employeeObject.fName}</th><th>${employeeObject.lName}</th>
-    <th>${employeeObject.id}</th><th>${employeeObject.title}</th>
-    <th>${employeeObject.annualSalary}</th><th><button id="delete-btn">Delete</button>`);
+    $('#tableBody').append(`<tr><th>${employeeObject.fName}</th><th>${employeeObject.lName}</th><th>${employeeObject.id}</th><th>${employeeObject.title}</th><th>${employeeObject.annualSalary}</th><th><button id="delete-btn">Delete</button>`);
+    monthlySalary += (Number(employeeObject.annualSalary) / 12);
 }
 
 function emptyInputs() {
@@ -46,11 +45,8 @@ function emptyInputs() {
     $('#in-annualSalary').val('');
 }
 
-function calculateMonthlySalary(array) {
+function calculateMonthlySalary() {
     let calculation = $('#monthlySalaryTotal');
     calculation.empty();
-    array.forEach(item => {
-        monthlySalary += (Number(item.annualSalary) / 12);
-    })
     return calculation.append(`Total Monthly: ${monthlySalary}`);
 }
