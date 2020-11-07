@@ -19,7 +19,8 @@ function employeeInput(event) {
         annualSalary: $('#in-annualSalary').val()
     }
     addEmployee(employeeSalary.fName, employeeSalary.lName, employeeSalary.id, employeeSalary.title, employeeSalary.annualSalary);
-    calculateMonthlySalary();
+    displayMonthlySalary();
+    displayRedMonthlyTotal();
     emptyInputs();
 }
 
@@ -45,8 +46,14 @@ function emptyInputs() {
     $('#in-annualSalary').val('');
 }
 
-function calculateMonthlySalary() {
+function displayMonthlySalary() {
     let calculation = $('#monthlySalaryTotal');
     calculation.empty();
     return calculation.append(`Total Monthly: ${monthlySalary}`);
+}
+
+function displayRedMonthlyTotal() {
+    if (monthlySalary > 20000) {
+        $('#monthlySalaryTotal').addClass('monthlyRed');
+    }
 }
