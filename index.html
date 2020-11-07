@@ -20,7 +20,7 @@
                 <input id="in-lastName" type="text" placeholder="Last Name">
                 <input id="in-id" type="text" placeholder="ID">
                 <input id="in-title" type="text" placeholder="Title">
-                <input id="in-annualSalary" type="text" placeholder="Annual Salary">
+                <input id="in-annualSalary" type="number" placeholder="Annual Salary">
                 <button id="btn-submit">Submit</button>
             </form>
         </section>
@@ -29,12 +29,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Annual Salary</th>
-                        <th>*******</th>
+                        <th class="tableHeaderItem">First Name</th>
+                        <th class="tableHeaderItem">Last Name</th>
+                        <th class="tableHeaderItem">ID</th>
+                        <th class="tableHeaderItem">Title</th>
+                        <th class="tableHeaderItem">Annual Salary</th>
+                        <th class="tableHeaderItem"></th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -43,7 +43,7 @@
             </table>
         </section>
         <br>
-        <div>Total Monthly</div>
+        <div id="monthlySalaryTotal">Total Monthly:</div>
     </main>
 </body>
 

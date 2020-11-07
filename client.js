@@ -1,8 +1,9 @@
-
+let employeeArray = [];
+let monthlySalary = 0;
 
 $(readyNow);
 
-let employeeArray = [];
+
 
 function readyNow() {
     $('#btn-submit').on('click', employeeInput)
@@ -17,7 +18,9 @@ function employeeInput(event) {
         title: $('#in-title').val(),
         annualSalary: $('#in-annualSalary').val()
     }
-    addEmployee(employeeSalary.fName, employeeSalary.lName, employeeSalary.id, employeeSalary.title, employeeSalary.annualSalary)
+    addEmployee(employeeSalary.fName, employeeSalary.lName, employeeSalary.id, employeeSalary.title, employeeSalary.annualSalary);
+    calculateMonthlySalary(employeeArray);
+    emptyInputs();
 }
 
 function addEmployee(fNameInput, lNameInput, idInput, titleInput, annualSalaryinput) {
@@ -30,4 +33,24 @@ function addEmployee(fNameInput, lNameInput, idInput, titleInput, annualSalaryin
     }
     employeeArray.push(employeeObject);
     console.log('Employee Object:', employeeObject);
+    $('#tableBody').append(`<tr><th>${employeeObject.fName}</th><th>${employeeObject.lName}</th>
+    <th>${employeeObject.id}</th><th>${employeeObject.title}</th>
+    <th>${employeeObject.annualSalary}</th><th><button id="delete-btn">Delete</button>`);
+}
+
+function emptyInputs() {
+    $('#in-firstName').val('');
+    $('#in-lastName').val('');
+    $('#in-id').val('');
+    $('#in-title').val('');
+    $('#in-annualSalary').val('');
+}
+
+function calculateMonthlySalary(array) {
+    let calculation = $('#monthlySalaryTotal');
+    calculation.empty();
+    array.forEach(item => {
+        monthlySalary += (Number(item.annualSalary) / 12);
+    })
+    return calculation.append(`Total Monthly: ${monthlySalary}`);
 }

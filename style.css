@@ -1,0 +1,9 @@
+table, th {
+    border: 1px solid black;
+}
+
+.tableHeaderItem {
+    padding: 6px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
