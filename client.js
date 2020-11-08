@@ -1,5 +1,6 @@
 let totalEmployees = 0
 let totalSalary = 0;
+let monthlyTotal = 0;
 
 $(readyNow);
 
@@ -26,7 +27,7 @@ function addEmployee(event) {
     displayTotalEmployees();
     totalSalary += (employeeSalary);
     displayMonthlySalary(employeeSalary);
-    totalSalary > 20000 && $('#monthlySalaryTotal').addClass('monthlyRed');
+    displayRed();
     emptyInputs();
 }
 
@@ -40,8 +41,17 @@ function emptyInputs() {
 
 function displayMonthlySalary() {
     let calculation = $('#monthlySalaryTotal');
+    monthlyTotal = Number(totalSalary) / 12;
     calculation.empty();
-    return calculation.append(`Total Monthly: $${Number(totalSalary / 12).toFixed(2)}`);
+    return calculation.append(`Total Monthly: $${Number(monthlyTotal).toFixed(2)}`);
+}
+
+function displayRed() {
+    if (monthlyTotal > 20000) {
+        $('#monthlySalaryTotal').addClass('monthlyRed')
+    } else {
+        $('#monthlySalaryTotal').removeClass('monthlyRed')
+    }
 }
 
 function displayTotalEmployees() {
@@ -54,6 +64,7 @@ function removeEmployee() {
     totalEmployees--
     displayTotalEmployees();
     totalSalary -= Number(($(this).closest('tr')[0].children[4].innerHTML));
-    displayMonthlySalary()
+    displayMonthlySalary();
     $(this).closest('tr').remove();
+    displayRed();
 }
