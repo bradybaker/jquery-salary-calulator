@@ -1,41 +1,33 @@
-let employeeArray = [];
-let monthlySalary = 0;
+let totalEmployees = 0
+let totalSalary = 0;
 
 $(readyNow);
 
-
-
 function readyNow() {
-    $('#btn-submit').on('click', employeeInput)
+    $('#btn-submit').on('click', addEmployee);
+    $('#tableBody').on('click', '#delete-btn', removeEmployee);
 }
 
-function employeeInput(event) {
+function addEmployee(event) {
     event.preventDefault();
-    let employeeSalary = {
-        fName: $('#in-firstName').val(),
-        lName: $('#in-lastName').val(),
-        id: $('#in-id').val(),
-        title: $('#in-title').val(),
-        annualSalary: $('#in-annualSalary').val()
-    }
-    addEmployee(employeeSalary.fName, employeeSalary.lName, employeeSalary.id, employeeSalary.title, employeeSalary.annualSalary);
-    displayMonthlySalary();
-    displayRedMonthlyTotal();
+    let employeeSalary = Number($('#in-annualSalary').val())
+    $('#tableBody').append(`
+        <tr class="tableRow">
+            <th>${$('#in-firstName').val()}</th>
+            <th>${$('#in-lastName').val()}</th>
+            <th>${$('#in-id').val()}</th>
+            <th>${$('#in-title').val()}</th>
+            <th>${employeeSalary}</th>
+            <th>
+                <button id="delete-btn">Delete</button>
+            </th>
+        </tr>`);
+    totalEmployees++
+    displayTotalEmployees();
+    totalSalary += (employeeSalary);
+    displayMonthlySalary(employeeSalary);
+    totalSalary > 20000 && $('#monthlySalaryTotal').addClass('monthlyRed');
     emptyInputs();
-}
-
-function addEmployee(fNameInput, lNameInput, idInput, titleInput, annualSalaryinput) {
-    let employeeObject = {
-        fName: fNameInput,
-        lName: lNameInput,
-        id: idInput,
-        title: titleInput,
-        annualSalary: annualSalaryinput,
-    }
-    employeeArray.push(employeeObject);
-    console.log('Employee Object:', employeeObject);
-    $('#tableBody').append(`<tr><th>${employeeObject.fName}</th><th>${employeeObject.lName}</th><th>${employeeObject.id}</th><th>${employeeObject.title}</th><th>${employeeObject.annualSalary}</th><th><button id="delete-btn">Delete</button>`);
-    monthlySalary += (Number(employeeObject.annualSalary) / 12);
 }
 
 function emptyInputs() {
@@ -49,11 +41,19 @@ function emptyInputs() {
 function displayMonthlySalary() {
     let calculation = $('#monthlySalaryTotal');
     calculation.empty();
-    return calculation.append(`Total Monthly: ${monthlySalary}`);
+    return calculation.append(`Total Monthly: $${Number(totalSalary / 12).toFixed(2)}`);
 }
 
-function displayRedMonthlyTotal() {
-    if (monthlySalary > 20000) {
-        $('#monthlySalaryTotal').addClass('monthlyRed');
-    }
+function displayTotalEmployees() {
+    let employee = $('#employeeTotal')
+    employee.empty();
+    return employee.append(`Number of Employees: ${totalEmployees}`)
+}
+
+function removeEmployee() {
+    totalEmployees--
+    displayTotalEmployees();
+    totalSalary -= Number(($(this).closest('tr')[0].children[4].innerHTML));
+    displayMonthlySalary()
+    $(this).closest('tr').remove();
 }

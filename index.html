@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1>Monthly Salary Expenditure Calculator</h1>
+    <h1 class="mainHeader">Monthly Salary Expenditure Calculator</h1>
     <main>
         <section>
             <h2>Add Employee</h2>
@@ -26,8 +26,8 @@
         </section>
         <section>
             <h2>Employees</h2>
-            <table>
-                <thead>
+            <table id="table">
+                <thead id="tableHeader">
                     <tr>
                         <th class="tableHeaderItem">First Name</th>
                         <th class="tableHeaderItem">Last Name</th>
@@ -43,6 +43,7 @@
             </table>
         </section>
         <br>
+        <div id="employeeTotal">Number of Employees:</div>
         <div id="monthlySalaryTotal">Total Monthly:</div>
     </main>
 </body>

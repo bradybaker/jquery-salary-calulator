@@ -1,5 +1,55 @@
+body {
+    background-color: #F3ECD9;
+    margin: 0px;
+    padding: 0px;
+    font-family: helvetica;
+}
+
+main {
+    margin-left: 33em;
+}
+
 table, th {
-    border: 1px solid black;
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid cornflowerblue;
+    background-color: #F3ECD9;
+    padding: 5px;
+    margin-right: 4px;
+}
+
+::placeholder {
+    color: black;
+    text-align: center;
+}
+
+.mainHeader {
+    text-align: center;
+    background-color: rosybrown;
+    padding: 20px;
+    margin-left: 10em;
+    margin-right: 10em;
+    margin-top: 0em;
+    border-bottom: 4px solid cornflowerblue;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px
+
+}
+
+#tableBody tr:nth-child(even) {
+    background-color: thistle;
+}
+
+#tableBody tr:nth-child(odd) {
+    background-color: lavenderblush;
+}
+
+#tableHeader {
+    background-color: rosybrown;
 }
 
 .tableHeaderItem {
@@ -10,5 +60,7 @@ table, th {
 
 .monthlyRed {
     background-color: red;
-    margin-right: 100px;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
 }
