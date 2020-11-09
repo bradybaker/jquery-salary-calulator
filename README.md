@@ -1,3 +1,8 @@
+![MIT LICENSE](https://img.shields.io/github/license/bradybaker/the_marketplace.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/bradybaker/the_marketplace.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/bradybaker/the_marketplace.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/bradybaker/the_marketplace.svg?style=social)
+
 # Monthly Salary Expenditure Calculator
 
 
@@ -49,5 +54,3 @@ Thanks to Prime Digital Academy who equipped and helped me to make this applicat
 ## Support
 
 Please do not hesitate to reach out to me with any questions, advice, or concerns at bradybaker82@gmail.com
-
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
