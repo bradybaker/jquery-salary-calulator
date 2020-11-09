@@ -1,7 +1,7 @@
-![MIT LICENSE](https://img.shields.io/github/license/bradybaker/the_marketplace.svg?style=flat-square)
-![REPO SIZE](https://img.shields.io/github/repo-size/bradybaker/the_marketplace.svg?style=flat-square)
-![TOP_LANGUAGE](https://img.shields.io/github/languages/top/bradybaker/the_marketplace.svg?style=flat-square)
-![FORKS](https://img.shields.io/github/forks/bradybaker/the_marketplace.svg?style=social)
+![MIT LICENSE](https://img.shields.io/github/license/bradybaker/jquery-salary-calulator?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/bradybaker/jquery-salary-calulator?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/bradybaker/jquery-salary-calulator?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/bradybaker/jquery-salary-calulator?style=social)
 
 # Monthly Salary Expenditure Calculator
 
