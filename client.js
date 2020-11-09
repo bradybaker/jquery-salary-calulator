@@ -63,6 +63,7 @@ function displayTotalEmployees() {
 function removeEmployee() {
     totalEmployees--
     displayTotalEmployees();
+    console.log($(this).closest('tr')[0].children[4].innerHTML);
     totalSalary -= Number(($(this).closest('tr')[0].children[4].innerHTML));
     displayMonthlySalary();
     $(this).closest('tr').remove();
